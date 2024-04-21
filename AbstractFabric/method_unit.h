@@ -1,5 +1,8 @@
 #ifndef METHOD_UNIT_H
 #define METHOD_UNIT_H
+#include "unit.h"
+#include <QVector>
+#include <memory>
 
 class MethodUnit : public Unit {
 public:
@@ -9,8 +12,7 @@ public:
         VIRTUAL = 1 << 2
     };
 public:
-    MethodUnit( const std::string& name, const std::string& returnType, Flags
-                                                                           flags ) :
+    MethodUnit( const std::string& name, const std::string& returnType, Flags flags ) :
         m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
     void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {
         m_body.push_back( unit );

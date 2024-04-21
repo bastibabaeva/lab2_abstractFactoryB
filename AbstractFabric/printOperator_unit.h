@@ -1,5 +1,7 @@
 #ifndef PRINTOPERATOR_UNIT_H
 #define PRINTOPERATOR_UNIT_H
+#include <QString>
+#include "unit.h"
 
 class PrintOperatorUnit : public Unit {
 public:

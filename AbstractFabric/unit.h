@@ -1,5 +1,7 @@
 #ifndef UNIT_H
 #define UNIT_H
+#include <QString>
+#include <memory>
 
 class Unit {
 public:

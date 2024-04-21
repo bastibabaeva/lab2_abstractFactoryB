@@ -1,5 +1,10 @@
 #ifndef CLASS_UNIT_H
 #define CLASS_UNIT_H
+#include <unit.h>
+#include <QString>
+#include <QVector>
+#include <memory>
+
 
 class ClassUnit : public Unit
 {
