@@ -1,8 +1,8 @@
 #ifndef CSHARP_H
 #define CSHARP_H
-//Модификатор final
+//Модификатор
 
-//final()
+//
 
 
 #endif // CSHARP_H
