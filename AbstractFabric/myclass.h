@@ -9,7 +9,8 @@ public:
     }
 protected:
     static void testFunc4() {
-        printf("Hello, world!\n");
+       // printf("Hello, world!\n");
+        std::cout<<"Hello, world!"<<std::endl;
     }
 private:
     static void testFunc2() {
