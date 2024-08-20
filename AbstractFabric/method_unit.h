@@ -3,6 +3,7 @@
 #include "unit.h"
 #include <QVector>
 #include <memory>
+#include "cassert"
 
 class MethodUnit : public Unit {
 public:
@@ -10,13 +11,14 @@ public:
         STATIC = 1,
         CONST = 1 << 1,
         VIRTUAL = 1 << 2,
-        FINAL,
-        ABSTRACT
     };
 public:
-    MethodUnit( const std::string& name, const std::string& returnType, Flags flags ) :
+    MethodUnit( const std::string& name, const std::string& returnType, Flags flags ):
         m_name( name ), m_returnType( returnType ), m_flags( flags ) { }
-    void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 ) {
+
+    void add( const std::shared_ptr< Unit >& unit, Flags /* flags */ = 0 )
+    {
+        assert(unit != NULL);
         m_body.push_back( unit );
     }
     std::string compile( unsigned int level = 0 ) const {
@@ -38,11 +40,29 @@ public:
         result += generateShift( level ) + "}\n";
         return result;
     }
-private:
+protected:
     std::string m_name;
     std::string m_returnType;
     Flags m_flags;
     std::vector< std::shared_ptr< Unit > > m_body;
+};
+class CMethod: public MethodUnit
+{
+    CMethod( const std::string& name, const std::string& returnType, Flags flags ) :
+        MethodUnit(name, returnType, flags) {}
+    std::string compile( unsigned int level = 0) const;
+};
+class CSharpMethod: public MethodUnit
+{
+    CSharpMethod(const std::string& name, const std::string& returnType, Flags flags):
+        MethodUnit(name, returnType, flags){}
+    std::string compile(unsigned int level=0) const;
+};
+class JavaMethod: public MethodUnit
+{
+    JavaMethod(const std::string&name, const std::string& returnType, Flags flags):
+        MethodUnit(name, returnType, flags){}
+    std::string compile(unsigned int level=0) const;
 };
 
 #endif // METHOD_UNIT_H

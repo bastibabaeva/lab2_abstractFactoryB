@@ -9,6 +9,7 @@ CONFIG += c++17 cmdline
 SOURCES += \
         generateProgram.cpp \
         main.cpp \
+        methodUnit.cpp \
         unit.cpp
 
 # Default rules for deployment.
