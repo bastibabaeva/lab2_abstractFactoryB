@@ -8,7 +8,8 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         generateProgram.cpp \
-        main.cpp
+        main.cpp \
+        unit.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

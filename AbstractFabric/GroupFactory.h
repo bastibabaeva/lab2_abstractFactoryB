@@ -4,6 +4,7 @@
 class GroupFActory:
 {
 public:
-    virtual
+    virtual ~GroupFActory(){};
+
 };
 #endif // GROUPFACTORY_H
